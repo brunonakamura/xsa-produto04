@@ -1,0 +1,24 @@
+ID: produto_04
+_schema-version: '2.0'
+version: 0.0.1
+modules:
+  - name: mod_04_web
+    type: html5
+    path: mod_04_web
+    parameters:
+      app-name: modulo_04_web
+      memory: 32M
+      disk-quota: 32M
+  - name: mod_04_db
+    type: hdb
+    path: mod_04_db
+    requires:
+      - name: hdi_mod_04_db
+resources:
+  - name: hdi_mod_04_db
+    parameters:
+      config:
+        schema: PRODUTO_04
+    properties:
+      hdi-container-name: '${service-name}'
+    type: com.sap.xs.hdi-container
